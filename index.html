@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Corner Restaurant</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff8f1;color:#33251f;line-height:1.6}
+header{background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fff;text-align:center;padding:55px 20px 38px}
+header h1{font-size:44px;margin-bottom:8px}
+header p{font-size:18px;opacity:.92}
+nav{background:#fff;display:flex;justify-content:center;gap:8px;padding:14px;position:sticky;top:0;z-index:10;box-shadow:0 3px 14px #00000012}
+nav a{text-decoration:none;color:#9a3412;font-weight:bold;padding:9px 17px;border-radius:22px}
+nav a:hover{background:#ea580c;color:#fff}
+.container{max-width:1050px;margin:auto;padding:45px 20px}
+.hero,.hours{background:#fff;padding:38px;border-radius:20px;text-align:center;box-shadow:0 8px 25px #7c2d1212;margin-bottom:35px}
+.hero h2,.section-title{color:#9a3412}
+.hero h2{font-size:31px;margin-bottom:12px}
+.hero p{color:#6b5b53;max-width:750px;margin:auto}
+.section-title{text-align:center;font-size:29px;margin:35px 0 20px}
+.menu{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px #7c2d1212}
+.menu th{background:#9a3412;color:#fff;padding:16px;text-align:left}
+.menu td{padding:15px;border-bottom:1px solid #f1e1d7}
+.menu tr:hover td{background:#fff1e8}
+.menu td:last-child{font-weight:bold;color:#c2410c}
+.hours{margin-top:35px;margin-bottom:0}
+.hours h2{color:#9a3412;margin-bottom:8px}
+footer{background:#431407;color:#fff;text-align:center;padding:24px;margin-top:20px}
+@media(max-width:600px){header h1{font-size:34px}nav{flex-wrap:wrap}.container{padding:30px 15px}.menu th,.menu td{padding:11px 8px;font-size:14px}}
+</style>
+</head>
+<body>
+<header><h1>🍴 Food Corner</h1><p>Delicious Food | Great Taste | Happy Moments</p></header>
+<nav><a href="#">Home</a><a href="#">Menu</a><a href="#">About Us</a><a href="#">Gallery</a><a href="#">Contact</a></nav>
+<main class="container">
+<section class="hero"><h2>Welcome to Food Corner</h2><p>Welcome to Food Corner Restaurant. We serve fresh, delicious and hygienic food for our customers.</p></section>
+<h2 class="section-title">Our Special Menu</h2>
+<table class="menu">
+<tr><th>Food Item</th><th>Category</th><th>Price</th></tr>
+<tr><td>🍕 Pizza</td><td>Italian</td><td>₹250</td></tr>
+<tr><td>🥘 Paneer Tikka</td><td>Indian</td><td>₹180</td></tr>
+<tr><td>🍔 Veg Burger</td><td>Fast Food</td><td>₹120</td></tr>
+<tr><td>☕ Cold Coffee</td><td>Beverage</td><td>₹100</td></tr>
+</table>
+<section class="hours"><h2>Opening Hours</h2><p>Monday - Sunday: 11:00 AM to 10:00 PM</p></section>
+</main>
+<footer><p>© 2026 Food Corner Restaurant</p></footer>
+</body>
+</html>
