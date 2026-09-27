@@ -1,50 +1,569 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food Corner Restaurant</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#fff8f1;color:#33251f;line-height:1.6}
-header{background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fff;text-align:center;padding:55px 20px 38px}
-header h1{font-size:44px;margin-bottom:8px}
-header p{font-size:18px;opacity:.92}
-nav{background:#fff;display:flex;justify-content:center;gap:8px;padding:14px;position:sticky;top:0;z-index:10;box-shadow:0 3px 14px #00000012}
-nav a{text-decoration:none;color:#9a3412;font-weight:bold;padding:9px 17px;border-radius:22px}
-nav a:hover{background:#ea580c;color:#fff}
-.container{max-width:1050px;margin:auto;padding:45px 20px}
-.hero,.hours{background:#fff;padding:38px;border-radius:20px;text-align:center;box-shadow:0 8px 25px #7c2d1212;margin-bottom:35px}
-.hero h2,.section-title{color:#9a3412}
-.hero h2{font-size:31px;margin-bottom:12px}
-.hero p{color:#6b5b53;max-width:750px;margin:auto}
-.section-title{text-align:center;font-size:29px;margin:35px 0 20px}
-.menu{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px #7c2d1212}
-.menu th{background:#9a3412;color:#fff;padding:16px;text-align:left}
-.menu td{padding:15px;border-bottom:1px solid #f1e1d7}
-.menu tr:hover td{background:#fff1e8}
-.menu td:last-child{font-weight:bold;color:#c2410c}
-.hours{margin-top:35px;margin-bottom:0}
-.hours h2{color:#9a3412;margin-bottom:8px}
-footer{background:#431407;color:#fff;text-align:center;padding:24px;margin-top:20px}
-@media(max-width:600px){header h1{font-size:34px}nav{flex-wrap:wrap}.container{padding:30px 15px}.menu th,.menu td{padding:11px 8px;font-size:14px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Corner | Delicious Food & Happy Moments</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #33251f;
+            background: #fff8f1;
+            line-height: 1.6
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 32px 20px 28px;
+            background: linear-gradient(135deg, #752b0f, #e76f25)
+        }
+
+        .logo {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #d85c20;
+            font-size: 34px;
+            box-shadow: 0 8px 22px #0003
+        }
+
+        header h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.15
+        }
+
+        header p {
+            margin-top: 6px;
+            font-size: 17px;
+            opacity: .95
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fffffff7;
+            box-shadow: 0 4px 18px #46230f1f;
+            backdrop-filter: blur(8px)
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6d3520;
+            font-weight: 700;
+            padding: 10px 17px;
+            border-radius: 25px;
+            transition: .25s
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #fff;
+            background: #d85c20;
+            transform: translateY(-1px)
+        }
+
+        main {
+            max-width: 1120px;
+            margin: auto;
+            padding: 42px 20px
+        }
+
+        section {
+            scroll-margin-top: 82px;
+            margin-bottom: 42px
+        }
+
+        .hero {
+            min-height: 360px;
+            padding: 55px 42px;
+            border-radius: 26px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(90deg, #4a1b0cf0, #aa4613a6),
+                radial-gradient(circle at 80% 30%, #ffd29b, transparent 38%);
+            box-shadow: 0 16px 38px #6930122e
+        }
+
+        .hero-content {
+            max-width: 650px
+        }
+
+        .hero h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.1;
+            margin-bottom: 15px
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            opacity: .95
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 28px;
+            background: #fff;
+            color: #c44d19;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .25s
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px #0003
+        }
+
+        .section-title {
+            text-align: center;
+            color: #7b351d;
+            font-size: 31px;
+            margin-bottom: 10px
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 58px;
+            height: 4px;
+            margin: 8px auto 0;
+            border-radius: 10px;
+            background: #e66a28
+        }
+
+        .section-subtitle {
+            max-width: 680px;
+            margin: 0 auto 25px;
+            text-align: center;
+            color: #806d63
+        }
+
+        .about-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 9px 25px #4b2a1414;
+            border: 1px solid #f2e4d9
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px
+        }
+
+        .menu-card {
+            background: #fff;
+            border: 1px solid #f0dfd2;
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            box-shadow: 0 8px 20px #4b2a1412;
+            transition: .25s
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 28px #78371421
+        }
+
+        .food-icon {
+            width: 65px;
+            height: 65px;
+            flex: 0 0 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fff0e3;
+            font-size: 31px
+        }
+
+        .menu-details {
+            flex: 1
+        }
+
+        .menu-details h3 {
+            color: #73351f;
+            margin-bottom: 2px
+        }
+
+        .category {
+            font-size: 13px;
+            color: #9a7968
+        }
+
+        .price {
+            color: #d6551c;
+            font-size: 19px;
+            font-weight: bold;
+            white-space: nowrap
+        }
+
+        .table-wrap {
+            margin-top: 25px;
+            overflow-x: auto;
+            border-radius: 18px;
+            box-shadow: 0 8px 22px #4b2a1414
+        }
+
+        table {
+            width: 100%;
+            min-width: 520px;
+            border-collapse: collapse;
+            background: #fff
+        }
+
+        th {
+            background: #9d421e;
+            color: #fff;
+            padding: 15px;
+            text-align: left
+        }
+
+        td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #f0e3d9
+        }
+
+        tr:hover td {
+            background: #fff8f1
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px
+        }
+
+        .gallery-item {
+    min-height: 155px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px #4b2a1414;
+    transition: .25s
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 155px;
+    object-fit: cover;
+    display: block;
+    transition: .25s
+}
+
+.gallery-item:hover {
+    transform: scale(1.03)
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08)
+}
+
+        .gallery-item:hover {
+            transform: scale(1.03)
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 28px;
+            border-radius: 20px;
+            box-shadow: 0 9px 25px #4b2a1414;
+            border: 1px solid #f1e2d7
+        }
+
+        .info-card h3 {
+            color: #7b351d;
+            margin-bottom: 12px
+        }
+
+        .info-line {
+            padding: 9px 0;
+            border-bottom: 1px solid #f2e8e1
+        }
+
+        .info-line:last-child {
+            border-bottom: 0
+        }
+
+        footer {
+            background: #4d2415;
+            color: #fff;
+            text-align: center;
+            padding: 25px 15px
+        }
+
+        @media(max-width:800px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .contact-grid,
+            .menu-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+            .nav-container {
+                gap: 3px
+            }
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 13px
+            }
+
+            main {
+                padding: 28px 14px
+            }
+
+            .hero {
+                min-height: 310px;
+                padding: 35px 24px
+            }
+
+            .hero p {
+                font-size: 16px
+            }
+
+            .menu-card {
+                padding: 16px
+            }
+
+            .gallery-item {
+                min-height: 125px
+            }
+        }
+
+        @media(max-width:390px) {
+            .gallery {
+                grid-template-columns: 1fr
+            }
+
+            .gallery-item {
+                min-height: 150px
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 7px 8px
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header><h1>🍴 Food Corner</h1><p>Delicious Food | Great Taste | Happy Moments</p></header>
-<nav><a href="#">Home</a><a href="#">Menu</a><a href="#">About Us</a><a href="#">Gallery</a><a href="#">Contact</a></nav>
-<main class="container">
-<section class="hero"><h2>Welcome to Food Corner</h2><p>Welcome to Food Corner Restaurant. We serve fresh, delicious and hygienic food for our customers.</p></section>
-<h2 class="section-title">Our Special Menu</h2>
-<table class="menu">
-<tr><th>Food Item</th><th>Category</th><th>Price</th></tr>
-<tr><td>🍕 Pizza</td><td>Italian</td><td>₹250</td></tr>
-<tr><td>🥘 Paneer Tikka</td><td>Indian</td><td>₹180</td></tr>
-<tr><td>🍔 Veg Burger</td><td>Fast Food</td><td>₹120</td></tr>
-<tr><td>☕ Cold Coffee</td><td>Beverage</td><td>₹100</td></tr>
-</table>
-<section class="hours"><h2>Opening Hours</h2><p>Monday - Sunday: 11:00 AM to 10:00 PM</p></section>
-</main>
-<footer><p>© 2026 Food Corner Restaurant</p></footer>
+
+    <header id="home">
+        <div class="logo">🍴</div>
+        <h1>Food Corner</h1>
+        <p>Delicious Food | Great Taste | Happy Moments</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="active">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Good Food, Great Moments</h2>
+                <p>
+                    Welcome to Food Corner — fresh, delicious and hygienic
+                    food prepared to make every meal special.
+                </p>
+                <a href="#menu" class="btn">Explore Our Menu</a>
+            </div>
+        </section>
+
+        <section id="menu">
+
+            <h2 class="section-title">Our Special Menu</h2>
+
+            <p class="section-subtitle">
+                Enjoy some of our popular dishes, prepared with care and served fresh.
+            </p>
+
+            <div class="menu-grid">
+
+                <div class="menu-card">
+                    <div class="food-icon">🍕</div>
+
+                    <div class="menu-details">
+                        <h3>Pizza</h3>
+                        <span class="category">Italian</span>
+                    </div>
+
+                    <span class="price">₹250</span>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-icon">🥘</div>
+
+                    <div class="menu-details">
+                        <h3>Paneer Tikka</h3>
+                        <span class="category">Indian</span>
+                    </div>
+
+                    <span class="price">₹180</span>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-icon">🍔</div>
+
+                    <div class="menu-details">
+                        <h3>Veg Burger</h3>
+                        <span class="category">Fast Food</span>
+                    </div>
+
+                    <span class="price">₹120</span>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-icon">☕</div>
+
+                    <div class="menu-details">
+                        <h3>Cold Coffee</h3>
+                        <span class="category">Beverage</span>
+                    </div>
+
+                    <span class="price">₹100</span>
+                </div>
+
+            </div>
+
+            
+
+        </section>
+
+        <section id="about">
+
+            <h2 class="section-title">About Us</h2>
+
+            <div class="about-box">
+                <p>
+                    Welcome to Food Corner Restaurant. We serve fresh, delicious
+                    and hygienic food for our customers. Our goal is to create
+                    great food and happy moments in a comfortable and welcoming environment.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="gallery">
+
+            <h2 class="section-title">Food Gallery</h2>
+
+            <p class="section-subtitle">
+                A quick look at some of our favourite dishes.
+            </p>
+
+            <div class="gallery">
+                 <div class="gallery-item">
+        <img src="https://www.liveeatlearn.com/wp-content/uploads/2025/09/Veggie-Pizza-12.jpg" alt="Pizza">
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLV6ksNHxrShARdRYEphw0joRZU2EeIZjiCnb4SMQ1DSnn-wm_t44CKRx3&s=10" alt="Paneer Tikka">
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://www.seriouseats.com/thmb/pUE9Dw4RjWKEG4JED7whaHoIzNg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250523-SEA-ThickandJuicyCheeseburgers-LorenaMasso-HERO-68563a45a4184a0e82c5a8b9f68a719d.jpg" alt="Veg Burger">
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmMqkmnLEZTK8bQ9XAfvUqR834bCGnAig5wtwbeVl_xA&s=10" alt="Cold Coffee">
+    </div>
+            </div>
+
+        </section>
+
+        <section id="contact">
+
+            <h2 class="section-title">Contact Us</h2>
+
+            <div class="contact-grid">
+
+                <div class="info-card">
+                    <h3>Visit Food Corner</h3>
+
+                    <div class="info-line">📍 Food Corner Restaurant</div>
+                    <div class="info-line">📞 +91 98765 43210</div>
+                    <div class="info-line">✉ foodcorner@example.com</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Opening Hours</h3>
+
+                    <div class="info-line">🕚 Monday - Sunday</div>
+                    <div class="info-line">⏰ 11:00 AM to 10:00 PM</div>
+                    <div class="info-line">🍽 Dine-in & Takeaway Available</div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Food Corner Restaurant. All Rights Reserved.</p>
+    </footer>
+
 </body>
+
 </html>
+
